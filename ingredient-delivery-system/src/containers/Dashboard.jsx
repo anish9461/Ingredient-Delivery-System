@@ -1,10 +1,11 @@
 import React, {Component} from "react";
-import MapComponent from "./MapComponent";
+import MapComponent from "../Components/MapComponent";
 import "../css/dashboard.css";
 import bgimage from "../images/restaurant-1.jpg";
-import IngredientList from "./IngredientList";
+import IngredientList from "./IngredientContainer";
 import {connect} from 'react-redux';
 import {getStores} from '../actions/storesActions';
+import IngredientContainer from "./IngredientContainer";
 
 class Dashboard extends Component{
     
@@ -22,8 +23,9 @@ console.log(this.props.retailStores)
         return(
             <div className="dashboard">
                  
-                <MapComponent></MapComponent>
-                <IngredientList></IngredientList>
+                <MapComponent />
+                <hr/>
+                <IngredientContainer />
               
                 </div>
             

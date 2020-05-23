@@ -1,4 +1,4 @@
-import {GET_INGREDIENTS, GET_STORES} from '../actions/types';
+import {GET_INGREDIENTS, GET_STORES, SELECTED_STORE, GET_STORE} from '../actions/types';
 
 const initialState = {
     rStores: [],
@@ -13,7 +13,20 @@ export default function(state = initialState, action){
                 ...state,
                 rStores: action.payload
             }
+        case SELECTED_STORE:
+            console.log("reducer to set store")
+            return {
+                ...state,
+                selectedStore: action.payload
+            }
+        case GET_STORE:
+            console.log("reducer to get selected store")
+            return {
+                ...state,
+                selectedStore: action.payload
+            }
         default:
             return state;
     }
 }
+

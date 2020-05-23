@@ -11,7 +11,7 @@ import ReactMapboxGl, { Marker } from "react-mapbox-gl";
 import mapmarker from "../marker.svg";
 //import axios from "axios";
 import {connect} from 'react-redux';
-import {getStores} from '../actions/storesActions';
+import {getStores, selectStore} from '../actions/storesActions';
 
 
 
@@ -46,9 +46,12 @@ componentDidMount(){
 
   // get the ingredient list on click. Send the store name
   markerClick(e) {
-      console.log(e)
-      let rstore = this.props.retailStores.filter(res => res.storeId === e.target.id);
-      console.log(rstore);
+      console.log(e.target.id)
+      console.log(this.props.retailStores)
+      let rstore = this.props.retailStores.filter(res => 
+        res.storeId == e.target.id);
+      console.log(rstore[0]);
+      this.props.selectStore(rstore[0]);
     // sessionStorage.setItem("restaurantName", restaurant[0].name);
     // this.props.history.push("/restaurant2d", restaurant[0]);
     // this.props.history.push('/restaurant2d');
@@ -126,4 +129,4 @@ const mapStateToProps = state => ({
     retailStores: state.retailStores.rStores
 })
 
-export default connect(mapStateToProps,{getStores})(MapComponent);
+export default connect(mapStateToProps,{getStores,selectStore})(MapComponent);

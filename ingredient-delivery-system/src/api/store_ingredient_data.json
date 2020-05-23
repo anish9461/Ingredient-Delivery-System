@@ -6,11 +6,11 @@
         "estimateDelivery" : "20 minutes",
         "active" : false,
         "storeIngredients" : [
-            {"ingredientId" : 1, "ingredientName":"onions", "ingredientPrice":21, "ingredientQuantity":1},
-            {"ingredientId" : 2, "ingredientName":"carrots", "ingredientPrice":13, "ingredientQuantity":1},
-            {"ingredientId" : 3, "ingredientName":"tomatoes", "ingredientPrice":23, "ingredientQuantity":1},
-            {"ingredientId" : 4, "ingredientName":"potatoes", "ingredientPrice":11, "ingredientQuantity":1},
-            {"ingredientId" : 5, "ingredientName":"spinach", "ingredientPrice":24, "ingredientQuantity":1}
+            {"ingredientId" : 1, "ingredientName":"onions", "ingredientPrice":21, "ingredientQuantity":0},
+            {"ingredientId" : 2, "ingredientName":"carrots", "ingredientPrice":13, "ingredientQuantity":0},
+            {"ingredientId" : 3, "ingredientName":"tomatoes", "ingredientPrice":23, "ingredientQuantity":0},
+            {"ingredientId" : 4, "ingredientName":"potatoes", "ingredientPrice":11, "ingredientQuantity":0},
+            {"ingredientId" : 5, "ingredientName":"spinach", "ingredientPrice":24, "ingredientQuantity":0}
         ]
     },
     {
@@ -20,11 +20,11 @@
         "estimateDelivery" : "30 minutes",
         "active" : false,
         "storeIngredients" : [
-            {"ingredientId" : 1, "ingredientName":"apple", "ingredientPrice":25, "ingredientQuantity":1},
-            {"ingredientId" : 2, "ingredientName":"brocolli", "ingredientPrice":10, "ingredientQuantity":1},
-            {"ingredientId" : 3, "ingredientName":"tomatoes", "ingredientPrice":17, "ingredientQuantity":1},
-            {"ingredientId" : 4, "ingredientName":"potatoes", "ingredientPrice":28, "ingredientQuantity":1},
-            {"ingredientId" : 5, "ingredientName":"spinach", "ingredientPrice":15, "ingredientQuantity":1}
+            {"ingredientId" : 1, "ingredientName":"apple", "ingredientPrice":25, "ingredientQuantity":0},
+            {"ingredientId" : 2, "ingredientName":"brocolli", "ingredientPrice":10, "ingredientQuantity":0},
+            {"ingredientId" : 3, "ingredientName":"tomatoes", "ingredientPrice":17, "ingredientQuantity":0},
+            {"ingredientId" : 4, "ingredientName":"potatoes", "ingredientPrice":28, "ingredientQuantity":0},
+            {"ingredientId" : 5, "ingredientName":"spinach", "ingredientPrice":15, "ingredientQuantity":0}
         ]
     }
 ]

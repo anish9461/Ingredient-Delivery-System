@@ -1,2 +1,4 @@
 export const GET_STORES = 'GET_STORES';
 export const GET_INGREDIENTS = 'GET_INGREDIENTS';
+export const SELECTED_STORE = 'SELECTED_STORE';
+export const GET_STORE = 'GET_STORE';
