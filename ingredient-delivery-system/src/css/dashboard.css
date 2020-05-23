@@ -1,0 +1,68 @@
+.dashboard{
+    position: absolute;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    height: auto;
+}
+
+
+#bg {
+    position: fixed; 
+    /* top: 0; 
+    left: 0;  */
+  
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+  }
+
+
+  .container {
+    position: relative;
+    text-align: center;
+    color: white;
+    /* width: 100vw; */
+    /* height: 100vh; */
+  }
+
+  .centered {
+    position: absolute;
+    font-size: 50px;
+    color: aqua;
+    cursor: pointer;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .dialog-enter {
+    opacity: 0.01;
+    transform: scale(1.1);
+  }
+  
+  .dialog-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 1000ms;
+  }
+
+  .bg-image {
+    position: absolute;
+      z-index: 1;
+    /* The image used */
+    background-image: url("../images/restaurant-1.jpg");
+  
+    /* Add the blur effect */
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+  
+    /* Full height */
+    height: 100vh;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
