@@ -2,3 +2,6 @@ export const GET_STORES = 'GET_STORES';
 export const GET_INGREDIENTS = 'GET_INGREDIENTS';
 export const SELECTED_STORE = 'SELECTED_STORE';
 export const GET_STORE = 'GET_STORE';
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+export const CHECKOUT = 'CHECKOUT';

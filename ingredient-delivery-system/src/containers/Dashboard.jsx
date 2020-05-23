@@ -6,6 +6,7 @@ import IngredientList from "./IngredientContainer";
 import {connect} from 'react-redux';
 import {getStores} from '../actions/storesActions';
 import IngredientContainer from "./IngredientContainer";
+import CartsContainer from "./CartsContainer";
 
 class Dashboard extends Component{
     
@@ -22,11 +23,18 @@ console.log(this.props.retailStores)
 
         return(
             <div className="dashboard">
-                 
+                 <hr style={{
+    color: '#040000',
+    backgroundColor: '#020000',
+    height: 5,
+    borderColor : '#020000'
+}}/>
                 <MapComponent />
-                <hr/>
+                
                 <IngredientContainer />
-              
+                <hr />
+                <CartsContainer />
+                
                 </div>
             
         )
