@@ -1,0 +1,2 @@
+export const GET_STORES = 'GET_STORES';
+export const GET_INGREDIENTS = 'GET_INGREDIENTS';

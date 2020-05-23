@@ -3,7 +3,8 @@ import MapComponent from "./MapComponent";
 import "../css/dashboard.css";
 import bgimage from "../images/restaurant-1.jpg";
 import IngredientList from "./IngredientList";
-
+import {connect} from 'react-redux';
+import {getStores} from '../actions/storesActions';
 
 class Dashboard extends Component{
     
@@ -11,12 +12,18 @@ class Dashboard extends Component{
 
    
 
+    componentDidMount(){
+        this.props.getStores();
+    }
 
     render(){
+console.log(this.props.retailStores)
+
         return(
             <div className="dashboard">
                  
                 <MapComponent></MapComponent>
+                <IngredientList></IngredientList>
               
                 </div>
             
@@ -24,4 +31,8 @@ class Dashboard extends Component{
     }
 }
 
-export default Dashboard;
+const mapStateToProps = state => ({
+    retailStores: state.retailStores.rStores
+})
+
+export default connect(mapStateToProps,{getStores})(Dashboard);

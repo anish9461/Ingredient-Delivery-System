@@ -11,9 +11,9 @@ class IngredientList extends Component{
 
     render(){
         return(
-            <div className="bg-image">
-          <img src={bgimage} id="b" alt="" height="100vh" />
-        </div>
+           <div>
+               Hello
+           </div>
             
         )
     }

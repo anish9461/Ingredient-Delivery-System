@@ -10,6 +10,11 @@ import React, { Component } from "react";
 import ReactMapboxGl, { Marker } from "react-mapbox-gl";
 import mapmarker from "../marker.svg";
 //import axios from "axios";
+import {connect} from 'react-redux';
+import {getStores} from '../actions/storesActions';
+
+
+
 
 //Access token from the MapboxGl API
 const Map = ReactMapboxGl({
@@ -29,7 +34,9 @@ class MapComponent extends Component {
 
 //Component did mount
 //create the markers
-
+componentDidMount(){
+    this.props.getStores();
+}
 
 //   //this function is executed before rendering the component
 //   componentWillMount() {
@@ -40,7 +47,8 @@ class MapComponent extends Component {
   // get the ingredient list on click. Send the store name
   markerClick(e) {
       console.log(e)
-    // var restaurant = this.state.data.filter(res => res.name === e.target.id);
+      let rstore = this.props.retailStores.filter(res => res.storeId === e.target.id);
+      console.log(rstore);
     // sessionStorage.setItem("restaurantName", restaurant[0].name);
     // this.props.history.push("/restaurant2d", restaurant[0]);
     // this.props.history.push('/restaurant2d');
@@ -71,7 +79,7 @@ class MapComponent extends Component {
         >
           {/* : map the markers on the map */}
          
-              <Marker
+              {/* <Marker
                 style={{ cursor: "pointer" }}
                 coordinates={[-74.1630, 41.1087]}
                 anchor="bottom"
@@ -84,8 +92,28 @@ class MapComponent extends Component {
                   width="40"
                   alt=""
                 />
-              </Marker>
+              </Marker> */}
             
+
+              {this.props.retailStores.map(store => {
+            return (
+              <Marker
+                style={{ cursor: "pointer" }}
+                coordinates={[store["storeLocation"][0], store["storeLocation"][1]]}
+                anchor="bottom"
+                onClick={this.markerClick}
+              >
+                <img
+                  id={store["storeId"]}
+                  src={mapmarker}
+                  height="40"
+                  width="40"
+                  alt=""
+                />
+              </Marker>
+            );
+          })}   
+
      
         </Map>
       );
@@ -93,4 +121,9 @@ class MapComponent extends Component {
   }
 }
 
-export default MapComponent;
+
+const mapStateToProps = state => ({
+    retailStores: state.retailStores.rStores
+})
+
+export default connect(mapStateToProps,{getStores})(MapComponent);
