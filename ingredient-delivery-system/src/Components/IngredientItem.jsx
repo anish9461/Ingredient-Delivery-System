@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 
 import {connect} from 'react-redux';
 import {getStore} from '../actions/storesActions';
+import '../css/ingredient.css';
 
 //list the ingredients used for the store with the prices
 // class Ingredient extends Component{
@@ -28,8 +29,10 @@ import {getStore} from '../actions/storesActions';
 const IngredientItem = ({ingredient,price,quantity}) => (
     
     <div>
-        {ingredient} - &#36;{price}    
+        {ingredient} &nbsp; &#36;{price}
+            
     </div>
+   
 )
 
 // const Ingredient = ({ingredient,price,quantity,storeId}) => (

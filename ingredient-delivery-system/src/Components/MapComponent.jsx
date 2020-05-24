@@ -12,7 +12,7 @@ import mapmarker from "../marker.svg";
 //import axios from "axios";
 import {connect} from 'react-redux';
 import {getStores, selectStore} from '../actions/storesActions';
-
+import '../css/tooltip.css';
 
 
 
@@ -70,13 +70,15 @@ componentDidMount(){
   render() {
     {
       return (
+        
         <Map
           center={[-74.1436, 41.0886]}
           style="mapbox://styles/mapbox/streets-v9"
+
           containerStyle={{
-            height: "80vh",
-            width: "70vw",
-            alignContent: "centre"
+            height: "500px",
+            width: "60%",
+            marginLeft: "20%"
           }}
         >
           {/* : map the markers on the map */}
@@ -100,12 +102,14 @@ componentDidMount(){
               {this.props.retailStores.map(store => {
             return (
               <Marker
+              className="tooltip"
                 style={{ cursor: "pointer" }}
                 coordinates={[store["storeLocation"][0], store["storeLocation"][1]]}
                 anchor="bottom"
                 onClick={this.markerClick}
                 key={store["storeId"]}
               >
+                <span class="tooltiptext">Store : {store["storeName"]} Delivery: {store["estimateDelivery"]}</span>
                 <img
                   id={store["storeId"]}
                   src={mapmarker}
@@ -119,6 +123,7 @@ componentDidMount(){
 
      
         </Map>
+       
       );
     }
   }

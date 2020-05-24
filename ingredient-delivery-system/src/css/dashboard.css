@@ -7,14 +7,15 @@
     height: auto;
     width: auto; */
     
-    display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   margin-top: 3%;
-  margin-left: 15%;
+  margin-left: 1%;
   margin-bottom: 1%;
-  width: auto;
-  height: auto;
+  /* width: auto;
+  height: auto; */
+  text-align: center;
 }
 
 

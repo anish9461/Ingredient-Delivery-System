@@ -16,7 +16,7 @@
     {
         "storeId":2,
         "storeName":"PriceChopper",
-        "storeLocation" : [-74.1530, 41.1187],
+        "storeLocation" : [-74.1530, 41.1007],
         "estimateDelivery" : "30 minutes",
         "active" : false,
         "storeIngredients" : [

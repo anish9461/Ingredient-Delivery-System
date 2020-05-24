@@ -21,16 +21,13 @@ class Dashboard extends Component{
     render(){
         return(
             <div className="dashboard">
-                 <hr style={{
-    color: '#040000',
-    backgroundColor: '#020000',
-    height: 5,
-    borderColor : '#020000'
-}}/>
+                <h1>Chefman Ingredient Delivery System</h1>
+                <div>
                 <MapComponent />
+                </div>
                 <h2> Ingredients </h2>
                 <IngredientContainer />
-                <hr />
+           
                 <h2> Cart </h2>
                 <CartsContainer />
                 

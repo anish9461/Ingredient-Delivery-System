@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
-
+import '../css/cart.css';
 
 
 const Cart = ({name,price,quantity}) => (
     
-    <div>
-        {name} - &#36;{price} &nbsp;  x{quantity}  
-    </div>
+
+            <tr>
+                <th>{name}</th>
+                <th>{quantity}</th>
+                <th>&#36;{price}</th>
+            </tr>
+       
+ 
 )
 
 

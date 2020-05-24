@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {connect} from 'react-redux';
 import {getCartItems,removeFromCart,checkout} from '../actions/cartActions';
 import Cart from '../Components/Cart';
+import "../css/cart.css";
 
 //store shopid, ingredient name and quantity in carts store. get shop id from selected store
 class CartsContainer extends Component{
@@ -28,20 +29,31 @@ render(){
         console.log(cartItems)
         if(cartItems.length != 0){
         return(
-            <div>
+            <div style={{textAlign: 'center'}}>
+                <table>
+                <tr>
+                <th>Ingredient</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
                 {cartItems.map(item =>{
                     return(
                     <Cart
                      name={item.ingredientName}
-                     price={item.ingredientPrice}
+                     price={item.ingredientPrice * item.ingredientQuantity}
                      quantity={item.ingredientQuantity}
                      />
                     )
                 })}
-                <hr style={{width:'100px'}} />
-                 <h4>Total : {total}</h4>
-                 <hr style={{width:'100px'}} />
-                 <button onClick={() => {this.props.checkout(this.props.selectedStore.storeId);window.alert("Checkout successful!!!")}}>
+               
+                <tr>
+                <th></th>
+                <th></th>
+                <th style={{color: 'red'}}>Total : &#36;{total}</th>
+            </tr>
+                 
+                 </table>
+                 <button className='button checkout' onClick={() => {this.props.checkout(this.props.selectedStore.storeId);window.alert("Checkout successful!!!")}}>
                  CHECKOUT    
                  </button> 
             </div>

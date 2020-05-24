@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {getStore} from '../actions/storesActions';
 import Ingredient from "../Components/Ingredient";
 import {addToCart,removeFromCart} from '../actions/cartActions';
+import '../css/ingredient.css';
 
 //list the ingredients used for the stores with the prices
 class IngredientContainer extends Component{
@@ -25,6 +26,7 @@ class IngredientContainer extends Component{
         return(
            <div style={{marginBottom: 20}}>
                <h3>Store {this.props.selectedStore.storeName} </h3>
+               <div className="row">
                {ingredients.map(Ing => {
                    cartItem = {
                     storeId:this.props.selectedStore.storeId,ingredientName:Ing.ingredientName, ingredientPrice:Ing.ingredientPrice, ingredientQuantity:1, ingredientId:Ing.ingredientId
@@ -36,12 +38,14 @@ class IngredientContainer extends Component{
                        price={Ing.ingredientPrice}
                        quantity={Ing.ingredientQuantity}
                        cartItem={cartItem}
-                       key={Ing.ingredientId}
+                       ingredientId={Ing.ingredientId}
+                       storeId={this.props.selectedStore.storeId}
                        />
                      
                    )
                    
                })}
+               </div>
            </div>
             
         )
