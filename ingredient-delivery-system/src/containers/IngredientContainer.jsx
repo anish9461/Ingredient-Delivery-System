@@ -12,11 +12,9 @@ class IngredientContainer extends Component{
 
 
     render(){
-        console.log("Selected store");
-        console.log(this.props.selectedStore)
+   
         let ingredients = this.props.selectedStore.storeIngredients;
-        console.log("Ingredients")
-        console.log(ingredients)
+   
         
         if(ingredients){
             // let cartItems = ingredients.map(Ing =>(

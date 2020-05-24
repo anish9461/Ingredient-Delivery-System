@@ -4,53 +4,71 @@ const initialState = {
     cartItems: [],
 }
 
-export default function(state = initialState.cartItems, action){
-    console.log("In carts reducer")
+export default function(state = initialState, action){
+    let cartItems
     switch(action.type){
         case ADD_TO_CART:
-            console.log("reducer to add items")
-            console.log(state)
-            console.log("action items")
-            console.log(action.payload.storeId)
-            let addCartIndex = state.findIndex(item => (item.storeId == action.payload.storeId) && (item.ingredientId == action.payload.ingredientId))
-            console.log("Is item present ",addCartIndex)
+ 
+            let addCartIndex = state.cartItems.findIndex(item => (item.storeId == action.payload.storeId) && (item.ingredientId == action.payload.ingredientId))
+            console.log(addCartIndex)
             //If present, increment the quantity else add item to the cart
+            
             if(addCartIndex == -1){
                 
-                state = [
-                    ...state,
+                cartItems = [
+                    ...state.cartItems,
                     action.payload
                 ]
-                return [...state];
+                return {...state,cartItems};
             }
-            state[addCartIndex].ingredientQuantity++;
-            return [...state];
+            console.log("state cart items")
+            console.log(state.cartItems)
+            state.cartItems[addCartIndex].ingredientQuantity++;
+            cartItems = [...state.cartItems]
+            console.log("cart items in reducer")
+            console.log(cartItems)
+            return {...state,cartItems};
         case REMOVE_FROM_CART:
-            let CartIndex = state.findIndex(item => (item.storeId == action.payload.storeId) && (item.ingredientId == action.payload.ingredientId))
-            console.log("Is item present ",CartIndex)
+            let CartIndex = state.cartItems.findIndex(item => (item.storeId == action.payload.storeId) && (item.ingredientId == action.payload.ingredientId))
+            
             //If present, increment the quantity else add item to the cart
             if(CartIndex == -1){
-                return [...state]             
+                console.log("removing herer")
+                cartItems = [...state.cartItems]
+                return {...state,cartItems}             
             }
-            if(state[CartIndex].ingredientQuantity == 0){
-                state.splice(CartIndex,1)
-                return [...state]
+            if(state.cartItems[CartIndex].ingredientQuantity == 0){
+                state.cartItems.splice(CartIndex,1)
+                cartItems = [...state.cartItems]
+                return {...state,cartItems}
             }
-            state[CartIndex].ingredientQuantity--;
-            if(state[CartIndex].ingredientQuantity == 0){
-                state.splice(CartIndex,1)
+            if(state.cartItems[CartIndex].ingredientQuantity == 1){
+                //state.cartItems[CartIndex].ingredientQuantity--;
+                state.cartItems.splice(CartIndex,1)
+            
+                cartItems = [...state.cartItems]
+                return {...state,cartItems}
             }
-            return [...state];
+            state.cartItems[CartIndex].ingredientQuantity--;
+            
+            cartItems = [...state.cartItems]
+            return {...state,cartItems};
         
         case GET_CART_ITEMS:
-            console.log("returning cart items")
+ 
             return {...state};
         
         case CHECKOUT:
-            state = []
-            return [...state]
+            state.cartItems.filter(item => item.storeId == action.payload).map(item => item.ingredientQuantity = 1)
+            state.cartItems = state.cartItems.filter(item => item.storeId != action.payload)
+            console.log(cartItems)
+            console.log(state.cartItems)
+            cartItems = [...state.cartItems]
+            //state.cartItems = state.cartItems.filter(item => item.storeId == action.payload).map(item => item.ingredientQuantity = 1).filter(item => item.storeId == action.payload)
+            //console.log(state.cartItems)
+            return {...state,cartItems}
         default:
-            return [...state];
+            return {...state};
     }
 }
 

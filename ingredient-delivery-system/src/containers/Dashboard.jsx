@@ -19,8 +19,6 @@ class Dashboard extends Component{
     }
 
     render(){
-console.log(this.props.retailStores)
-
         return(
             <div className="dashboard">
                  <hr style={{

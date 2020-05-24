@@ -46,11 +46,10 @@ componentDidMount(){
 
   // get the ingredient list on click. Send the store name
   markerClick(e) {
-      console.log(e.target.id)
-      console.log(this.props.retailStores)
+
       let rstore = this.props.retailStores.filter(res => 
         res.storeId == e.target.id);
-      console.log(rstore[0]);
+ 
       this.props.selectStore(rstore[0]);
     // sessionStorage.setItem("restaurantName", restaurant[0].name);
     // this.props.history.push("/restaurant2d", restaurant[0]);
@@ -105,6 +104,7 @@ componentDidMount(){
                 coordinates={[store["storeLocation"][0], store["storeLocation"][1]]}
                 anchor="bottom"
                 onClick={this.markerClick}
+                key={store["storeId"]}
               >
                 <img
                   id={store["storeId"]}

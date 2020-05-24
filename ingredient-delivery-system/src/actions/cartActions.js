@@ -23,8 +23,9 @@ export const getCartItems = () => dispatch => {
     })
 }
 
-export const checkout = () => dispatch => {
+export const checkout = item => dispatch => {
     dispatch({
-        type: CHECKOUT
+        type: CHECKOUT,
+        payload: item
     })
 }

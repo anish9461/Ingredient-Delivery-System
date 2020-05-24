@@ -16,12 +16,17 @@ class CartsContainer extends Component{
 
 
 render(){
-    console.log("Cart items")
-    console.log(this.props.cartItems)
+    //console.log("Cart items")
+
     let cartItems = this.props.cartItems;
     let total; 
-    if(this.props.cartItems.length !== 0){
+    if(this.props.cartItems.length != 0){
+        console.log(cartItems)
+        console.log(this.props.selectedStore.storeId)
+        cartItems = cartItems.filter(item => item.storeId == this.props.selectedStore.storeId)
         total = cartItems.map(item => item.ingredientPrice * item.ingredientQuantity).reduce((a,b) => a + b, 0)
+        console.log(cartItems)
+        if(cartItems.length != 0){
         return(
             <div>
                 {cartItems.map(item =>{
@@ -36,11 +41,19 @@ render(){
                 <hr style={{width:'100px'}} />
                  <h4>Total : {total}</h4>
                  <hr style={{width:'100px'}} />
-                 <button onClick={() => {this.props.checkout();window.alert("Checkout successful!!!")}}>
+                 <button onClick={() => {this.props.checkout(this.props.selectedStore.storeId);window.alert("Checkout successful!!!")}}>
                  CHECKOUT    
                  </button> 
             </div>
         )
+            }
+            else{
+                return(
+                    <div>
+                    <h3>Please add Items to the Cart</h3>
+                </div>
+                )
+            }
     }
     else{
         return(
@@ -55,7 +68,8 @@ render(){
 }
 
 const mapStateToProps = state => ({
-    cartItems: state.cartReducer
+    cartItems: state.cartReducer.cartItems,
+    selectedStore: state.retailStores.selectedStore
 })
 
 export default connect(mapStateToProps,{getCartItems,removeFromCart,checkout})(CartsContainer);
