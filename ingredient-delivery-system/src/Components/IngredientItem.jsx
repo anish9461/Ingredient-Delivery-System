@@ -28,7 +28,7 @@ import {getStore} from '../actions/storesActions';
 const IngredientItem = ({ingredient,price,quantity}) => (
     
     <div>
-        {ingredient} - &#36;{price}       {quantity}
+        {ingredient} - &#36;{price}    
     </div>
 )
 

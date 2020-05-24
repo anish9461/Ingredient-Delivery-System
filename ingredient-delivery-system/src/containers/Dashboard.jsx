@@ -30,9 +30,10 @@ console.log(this.props.retailStores)
     borderColor : '#020000'
 }}/>
                 <MapComponent />
-                
+                <h2> Ingredients </h2>
                 <IngredientContainer />
                 <hr />
+                <h2> Cart </h2>
                 <CartsContainer />
                 
                 </div>

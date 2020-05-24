@@ -19,19 +19,20 @@ class IngredientContainer extends Component{
         console.log(ingredients)
         
         if(ingredients){
-            let cartItems = ingredients.map(Ing =>(
-                {storeId:this.props.selectedStore.storeId,ingredientName:Ing.ingredientName, ingredientPrice:Ing.ingredientPrice, ingredientQuantity:Ing.ingredientQuantity}))
-            console.log("Cart items")
-            console.log(cartItems)
+            // let cartItems = ingredients.map(Ing =>(
+            //     {storeId:this.props.selectedStore.storeId,ingredientName:Ing.ingredientName, ingredientPrice:Ing.ingredientPrice, ingredientQuantity:Ing.ingredientQuantity}))
+            // console.log("Cart items")
+            // console.log(cartItems)
             let cartItem;
         return(
            <div style={{marginBottom: 20}}>
+               <h3>Store {this.props.selectedStore.storeName} </h3>
                {ingredients.map(Ing => {
                    cartItem = {
                     storeId:this.props.selectedStore.storeId,ingredientName:Ing.ingredientName, ingredientPrice:Ing.ingredientPrice, ingredientQuantity:1, ingredientId:Ing.ingredientId
                    }
                    return(
-                       <div>
+                     
                        <Ingredient 
                        ingredient={Ing.ingredientName}
                        price={Ing.ingredientPrice}
@@ -39,16 +40,7 @@ class IngredientContainer extends Component{
                        cartItem={cartItem}
                        key={Ing.ingredientId}
                        />
-                       {/* <div>
-                       <button style={{marginRight: 15}}
-                       onClick={() => addToCart()}>
-                           Add to Cart
-                       </button>
-                       <button>
-                           Remove from Cart
-                       </button>
-                       </div> */}
-                       </div>
+                     
                    )
                    
                })}
