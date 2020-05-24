@@ -1,4 +1,4 @@
-import {ADD_TO_CART, REMOVE_FROM_CART, GET_CART_ITEMS} from '../actions/types';
+import {ADD_TO_CART, REMOVE_FROM_CART, GET_CART_ITEMS, CHECKOUT} from '../actions/types';
 
 const initialState = {
     cartItems: [],
@@ -30,10 +30,10 @@ export default function(state = initialState.cartItems, action){
             console.log("Is item present ",CartIndex)
             //If present, increment the quantity else add item to the cart
             if(CartIndex == -1){
-                return [...state]
-                
+                return [...state]             
             }
             if(state[CartIndex].ingredientQuantity == 0){
+                state.splice(CartIndex,1)
                 return [...state]
             }
             state[CartIndex].ingredientQuantity--;
@@ -45,7 +45,10 @@ export default function(state = initialState.cartItems, action){
         case GET_CART_ITEMS:
             console.log("returning cart items")
             return {...state};
-
+        
+        case CHECKOUT:
+            state = []
+            return [...state]
         default:
             return [...state];
     }

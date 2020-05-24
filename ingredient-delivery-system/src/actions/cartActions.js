@@ -1,4 +1,4 @@
-import {ADD_TO_CART, REMOVE_FROM_CART, GET_CART_ITEMS} from './types';
+import {ADD_TO_CART, REMOVE_FROM_CART, GET_CART_ITEMS, CHECKOUT} from './types';
 
 export const addToCart = item => dispatch => {
     console.log("adding to cart in actions")
@@ -20,5 +20,11 @@ export const removeFromCart = item => dispatch => {
 export const getCartItems = () => dispatch => {
     dispatch({
         type: GET_CART_ITEMS
+    })
+}
+
+export const checkout = () => dispatch => {
+    dispatch({
+        type: CHECKOUT
     })
 }
