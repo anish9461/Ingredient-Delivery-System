@@ -1,18 +1,29 @@
-import React, {Component} from 'react';
-import '../css/cart.css';
 
+///////////////////////////////////////////////////////////////////////////////////
+// Cart.jsx - Display the items added to cart                                    //
+// ver 1.0                                                                       //
+// Language:    Javascript, React Framework                                      //
+// Ingredient Delivery System                                                    //
+// Source Author:      Anish Nesarkar,Syracuse University                        //
+///////////////////////////////////////////////////////////////////////////////////
 
-const Cart = ({name,price,quantity}) => (
-    
+import React from "react";
+import "../css/cart.css";
+import PropTypes from "prop-types";
 
-            <tr>
-                <th>{name}</th>
-                <th>{quantity}</th>
-                <th>&#36;{price}</th>
-            </tr>
-       
- 
-)
+const Cart = ({ name, price, quantity }) => (
+  <tr>
+    <td>{name}</td>
+    <td>{quantity}</td>
+    <td>&#36;{price}</td>
+  </tr>
+);
 
+Cart.propTypes = {
+  name: PropTypes.string,
+  price: PropTypes.number,
+  quantity: PropTypes.number,
+};
 
 export default Cart;
+

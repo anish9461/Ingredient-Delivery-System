@@ -1,44 +1,62 @@
-import React, {Component} from "react";
+
+///////////////////////////////////////////////////////////////////////////////////
+// Dashboard.jsx - Wrapper for Ingredient Delivery System components             //
+// ver 1.0                                                                       //
+// Language:    Javascript, React Framework                                      //
+// Ingredient Delivery System                                                    //
+// Source Author:      Anish Nesarkar,Syracuse University                        //
+///////////////////////////////////////////////////////////////////////////////////
+
+import React, { Component } from "react";
 import MapComponent from "../Components/MapComponent";
 import "../css/dashboard.css";
-import bgimage from "../images/restaurant-1.jpg";
-import IngredientList from "./IngredientContainer";
-import {connect} from 'react-redux';
-import {getStores} from '../actions/storesActions';
+import { connect } from "react-redux";
+import { getStores, resetStore } from "../actions/storesActions";
+import { resetCart } from "../actions/cartActions";
 import IngredientContainer from "./IngredientContainer";
 import CartsContainer from "./CartsContainer";
+import PropTypes from "prop-types";
 
-class Dashboard extends Component{
-    
-    //create object for restaurants with location co-ordinates and estimation time. Explain in document that estimation time will differ. currently hard-coded
+class Dashboard extends Component {
+  componentDidMount() {
+    this.props.getStores();
+  }
 
-   
+  render() {
+    return (
+      <div className="dashboard">
+        <h1>Chefman Ingredient Delivery System</h1>
 
-    componentDidMount(){
-        this.props.getStores();
-    }
+        <MapComponent />
+        <div>
+          <button
+            className="buttonreset"
+            onClick={() => {
+              this.props.resetCart();
+              this.props.resetStore();
+            }}
+          >
+            RESET
+          </button>
+        </div>
+        <IngredientContainer />
 
-    render(){
-        return(
-            <div className="dashboard">
-                <h1>Chefman Ingredient Delivery System</h1>
-                <div>
-                <MapComponent />
-                </div>
-                <h2> Ingredients </h2>
-                <IngredientContainer />
-           
-                <h2> Cart </h2>
-                <CartsContainer />
-                
-                </div>
-            
-        )
-    }
+        <CartsContainer />
+      </div>
+    );
+  }
 }
 
-const mapStateToProps = state => ({
-    retailStores: state.retailStores.rStores
-})
+Dashboard.propTypes = {
+  resetCart: PropTypes.func.isRequired,
+  resetStore: PropTypes.func.isRequired
+};
 
-export default connect(mapStateToProps,{getStores})(Dashboard);
+const mapStateToProps = (state) => ({
+  retailStores: state.retailStores.rStores,
+  selectedStore: state.retailStores.selectedStore,
+});
+
+export default connect(mapStateToProps, { getStores, resetCart, resetStore })(
+  Dashboard
+);

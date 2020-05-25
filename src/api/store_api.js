@@ -1,26 +1,13 @@
-
 ///////////////////////////////////////////////////////////////////////////////////
-// IngredientItem.jsx - Display the available ingredients at store               //
+// store_api.js - js file to fetch sample data                                   //
 // ver 1.0                                                                       //
 // Language:    Javascript, React Framework                                      //
 // Ingredient Delivery System                                                    //
 // Source Author:      Anish Nesarkar,Syracuse University                        //
 ///////////////////////////////////////////////////////////////////////////////////
 
-import React from "react";
-import PropTypes from "prop-types";
-import "../css/ingredient.css";
+import _store_ingredients from './store_ingredient_data.json'
 
-const IngredientItem = ({ ingredient, price }) => (
-  <div>
-    {ingredient} &nbsp; &#36;{price}
-  </div>
-);
-
-IngredientItem.propTypes = {
-  ingredient: PropTypes.string,
-  price: PropTypes.number,
-};
-
-
-export default IngredientItem;
+export default {
+   getStores : (cb, timeout) => setTimeout(() => cb(_store_ingredients), timeout)
+}

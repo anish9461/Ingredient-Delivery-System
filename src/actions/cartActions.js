@@ -1,38 +1,50 @@
-import {ADD_TO_CART, REMOVE_FROM_CART, GET_CART_ITEMS, CHECKOUT, GET_INGREDIENT_QUANTITY} from './types';
 
-export const addToCart = item => dispatch => {
-    console.log("adding to cart in actions")
-    console.log(item)
-    dispatch({
-        type: ADD_TO_CART,
-        payload: item
-    })
-}
+///////////////////////////////////////////////////////////////////////////////////
+// cartActions.js - Actions for cart related data                                //
+// ver 1.0                                                                       //
+// Language:    Javascript, React Framework                                      //
+// Ingredient Delivery System                                                    //
+// Source Author:      Anish Nesarkar,Syracuse University                        //
+///////////////////////////////////////////////////////////////////////////////////
 
-export const removeFromCart = item => dispatch => {
-    console.log("remove from cart in actions")
-    dispatch({
-        type: REMOVE_FROM_CART,
-        payload: item
-    })
-}
+import {
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+  GET_CART_ITEMS,
+  CHECKOUT,
+  RESET,
+} from "./actionTypes";
 
-export const getCartItems = () => dispatch => {
-    dispatch({
-        type: GET_CART_ITEMS
-    })
-}
+export const addToCart = (item) => (dispatch) => {
+  dispatch({
+    type: ADD_TO_CART,
+    payload: item,
+  });
+};
 
-export const getIngredientQuantity = item => dispatch => {
-    dispatch({
-        type: GET_INGREDIENT_QUANTITY,
-        payload: item
-    })
-}
+export const removeFromCart = (item) => (dispatch) => {
+  dispatch({
+    type: REMOVE_FROM_CART,
+    payload: item,
+  });
+};
 
-export const checkout = item => dispatch => {
-    dispatch({
-        type: CHECKOUT,
-        payload: item
-    })
-}
+export const getCartItems = () => (dispatch) => {
+  dispatch({
+    type: GET_CART_ITEMS,
+  });
+};
+
+export const checkout = (item) => (dispatch) => {
+  dispatch({
+    type: CHECKOUT,
+    payload: item,
+  });
+};
+
+export const resetCart = () => (dispatch) => {
+  dispatch({
+    type: RESET,
+  });
+};
+
