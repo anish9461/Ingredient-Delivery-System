@@ -20,19 +20,17 @@ export default function (state = initialState, action) {
           item.storeId === action.payload.storeId &&
           item.ingredientId === action.payload.ingredientId
       );
-      console.log(addCartIndex);
+     
       //If present, increment the quantity else add item to the cart
 
       if (addCartIndex === -1) {
         cartItems = [...state.cartItems, action.payload];
         return { ...state, cartItems };
       }
-      console.log("state cart items");
-      console.log(state.cartItems);
+    
       state.cartItems[addCartIndex].ingredientQuantity++;
       cartItems = [...state.cartItems];
-      console.log("cart items in reducer");
-      console.log(cartItems);
+
       return { ...state, cartItems };
     case REMOVE_FROM_CART:
       let CartIndex = state.cartItems.findIndex(
@@ -43,7 +41,7 @@ export default function (state = initialState, action) {
 
       //If present, increment the quantity else add item to the cart
       if (CartIndex === -1) {
-        console.log("removing herer");
+    
         cartItems = [...state.cartItems];
         return { ...state, cartItems };
       }
@@ -68,14 +66,11 @@ export default function (state = initialState, action) {
       state.cartItems = state.cartItems.filter(
         (item) => item.storeId !== action.payload
       );
-      console.log(cartItems);
-      console.log(state.cartItems);
+
       cartItems = [...state.cartItems];
-      //state.cartItems = state.cartItems.filter(item => item.storeId == action.payload).map(item => item.ingredientQuantity = 1).filter(item => item.storeId == action.payload)
-      //console.log(state.cartItems)
+
       return { ...state, cartItems };
     case RESET:
-      console.log("reducing cart");
       while (state.cartItems.length) {
         state.cartItems.pop();
       }

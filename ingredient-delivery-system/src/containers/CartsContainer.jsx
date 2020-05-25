@@ -3,20 +3,21 @@ import { connect } from "react-redux";
 import { getCartItems, removeFromCart, checkout } from "../actions/cartActions";
 import Cart from "../Components/Cart";
 import "../css/cart.css";
+import PropTypes from "prop-types";
 
 //store shopid, ingredient name and quantity in carts store. get shop id from selected store
 class CartsContainer extends Component {
   render() {
     let cartItems = this.props.cartItems;
     let total;
-    if (this.props.cartItems.length != 0) {
+    if (this.props.cartItems.length !== 0) {
       cartItems = cartItems.filter(
-        (item) => item.storeId == this.props.selectedStore.storeId
+        (item) => item.storeId === this.props.selectedStore.storeId
       );
       total = cartItems
         .map((item) => item.ingredientPrice * item.ingredientQuantity)
         .reduce((a, b) => a + b, 0);
-      if (cartItems.length != 0) {
+      if (cartItems.length !== 0) {
         return (
           <div style={{ textAlign: "center" }}>
             <h2> Cart </h2>
@@ -77,6 +78,34 @@ class CartsContainer extends Component {
     }
   }
 }
+
+CartsContainer.propTypes = {
+  getCartItems: PropTypes.func.isRequired,
+  removeFromCart: PropTypes.func.isRequired,
+  checkout: PropTypes.func.isRequired,
+  cartItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      storeId: PropTypes.number.isRequired,
+      ingredientName: PropTypes.string.isRequired,
+      ingredientPrice: PropTypes.number.isRequired,
+      ingredientQuantity: PropTypes.number.isRequired,
+      ingredientId: PropTypes.number.isRequired,
+    })
+  ),
+  selectedStore: PropTypes.shape({
+    storeId: PropTypes.number.isRequired,
+    storeName: PropTypes.string.isRequired,
+    storeLocation: PropTypes.array.isRequired,
+    estimateDelivery: PropTypes.string.isRequired,
+    storeIngredients: PropTypes.arrayOf(
+      PropTypes.shape({
+        ingredientId: PropTypes.number.isRequired,
+        ingredientName: PropTypes.string.isRequired,
+        ingredientPrice: PropTypes.number.isRequired,
+      })
+    ),
+  }),
+};
 
 const mapStateToProps = (state) => ({
   cartItems: state.cartReducer.cartItems,

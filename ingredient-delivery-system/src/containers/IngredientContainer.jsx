@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { getStore } from "../actions/storesActions";
 import Ingredient from "../Components/Ingredient";
 import "../css/ingredient.css";
+import PropTypes from 'prop-types';
 
 class IngredientContainer extends Component {
   render() {
@@ -41,6 +42,22 @@ class IngredientContainer extends Component {
       return null;
     }
   }
+}
+
+IngredientContainer.propTypes = {
+    selectedStore: PropTypes.shape({
+        storeId: PropTypes.number.isRequired,
+        storeName: PropTypes.string.isRequired,
+        storeLocation: PropTypes.array.isRequired,
+        estimateDelivery: PropTypes.string.isRequired,
+        storeIngredients: PropTypes.arrayOf(
+          PropTypes.shape({
+            ingredientId: PropTypes.number.isRequired,
+            ingredientName: PropTypes.string.isRequired,
+            ingredientPrice: PropTypes.number.isRequired,
+          })
+        ),
+      })
 }
 
 const mapStateToProps = (state) => ({

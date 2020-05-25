@@ -3,15 +3,16 @@ import { connect } from "react-redux";
 import IngredientItem from "../Components/IngredientItem";
 import { addToCart, removeFromCart } from "../actions/cartActions";
 import "../css/ingredient.css";
+import PropTypes from "prop-types";
 
 class Ingredient extends Component {
   render() {
     let quantity = 0;
-    if (this.props.cartItems.length != 0) {
+    if (this.props.cartItems.length !== 0) {
       let item = this.props.cartItems.filter(
         (item) =>
-          item.storeId == this.props.storeId &&
-          item.ingredientId == this.props.ingredientId
+          item.storeId === this.props.storeId &&
+          item.ingredientId === this.props.ingredientId
       );
       quantity = item[0] === undefined ? 0 : item[0]["ingredientQuantity"];
     }
@@ -44,6 +45,20 @@ class Ingredient extends Component {
     );
   }
 }
+
+Ingredient.propTypes = {
+  addToCart: PropTypes.func.isRequired,
+  removeFromCart: PropTypes.func.isRequired,
+  cartItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      storeId: PropTypes.number.isRequired,
+      ingredientName: PropTypes.string.isRequired,
+      ingredientPrice: PropTypes.number.isRequired,
+      ingredientQuantity: PropTypes.number.isRequired,
+      ingredientId: PropTypes.number.isRequired,
+    })
+  ),
+};
 
 const mapStateToProps = (state) => ({
   cartItems: state.cartReducer.cartItems,

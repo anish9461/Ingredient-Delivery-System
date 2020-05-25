@@ -11,7 +11,7 @@ export const getStores = () => (dispatch) => {
 };
 
 export const selectStore = (rStore) => (dispatch) => {
-  dispatch({
+    dispatch({
     type: SELECTED_STORE,
     payload: rStore,
   });

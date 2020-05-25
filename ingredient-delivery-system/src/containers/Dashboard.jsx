@@ -6,6 +6,7 @@ import { getStores, resetStore } from "../actions/storesActions";
 import { resetCart } from "../actions/cartActions";
 import IngredientContainer from "./IngredientContainer";
 import CartsContainer from "./CartsContainer";
+import PropTypes from "prop-types";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -36,6 +37,11 @@ class Dashboard extends Component {
     );
   }
 }
+
+Dashboard.propTypes = {
+  resetCart: PropTypes.func.isRequired,
+  resetStore: PropTypes.func.isRequired
+};
 
 const mapStateToProps = (state) => ({
   retailStores: state.retailStores.rStores,
