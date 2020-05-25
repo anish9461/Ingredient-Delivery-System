@@ -3,7 +3,7 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {getStore} from '../actions/storesActions';
 import IngredientItem from '../Components/IngredientItem';
-import {addToCart,removeFromCart, getIngredientQuantity} from '../actions/cartActions';
+import {addToCart,removeFromCart} from '../actions/cartActions';
 import '../css/ingredient.css';
 //list the ingredients used for the store with the prices
 // class Ingredient extends Component{
@@ -38,14 +38,7 @@ import '../css/ingredient.css';
 
 class Ingredient extends Component{
  
-    componentDidMount(){
-        console.log(this.props.ingredientId)
-        const ingredient = {
-            storeId: this.props.storeId,
-            ingredientId: this.props.ingredientId
-        }
-        this.props.getIngredientQuantity(ingredient)
-    }
+    
 
     render(){
         console.log('props in ing')
@@ -95,5 +88,5 @@ const mapStateToProps = state => ({
     cartItems: state.cartReducer.cartItems
 })
 
-export default connect(mapStateToProps,{addToCart,removeFromCart,getIngredientQuantity})(Ingredient);
+export default connect(mapStateToProps,{addToCart,removeFromCart})(Ingredient);
 //export default Ingredient;

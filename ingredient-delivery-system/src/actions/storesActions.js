@@ -1,4 +1,4 @@
-import {GET_INGREDIENTS, GET_STORES, SELECTED_STORE, GET_STORE, RESET} from './types';
+import {GET_STORES, SELECTED_STORE, GET_STORE, RESET} from './actionTypes';
 import store_shop from '../api/store_shop';
 
 export const getStores = () => dispatch => {

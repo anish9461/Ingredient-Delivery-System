@@ -1,4 +1,4 @@
-import {ADD_TO_CART, REMOVE_FROM_CART, GET_CART_ITEMS, CHECKOUT, GET_INGREDIENT_QUANTITY, RESET} from '../actions/types';
+import {ADD_TO_CART, REMOVE_FROM_CART, GET_CART_ITEMS, CHECKOUT, RESET} from '../actions/actionTypes';
 
 const initialState = {
     cartItems: [],
@@ -56,15 +56,6 @@ export default function(state = initialState, action){
             return {...state,cartItems};       
         case GET_CART_ITEMS:
             return {...state};
-        case GET_INGREDIENT_QUANTITY:
-            console.log(action.payload)
-            console.log(state.cartItems)
-            let ingredientIndex = state.cartItems.findIndex(item => (item.storeId == action.payload.storeId) && (item.ingredientId == action.payload.ingredientId))
-            if(ingredientIndex==-1){
-                return {...state,ingredientQuantity: 0}
-            }
-            let quantity =  state.cartItems[ingredientIndex].ingredientQuantity;
-            return {...state,ingredientQuantity: quantity}
         case CHECKOUT:
             state.cartItems.filter(item => item.storeId == action.payload).map(item => item.ingredientQuantity = 1)
             state.cartItems = state.cartItems.filter(item => item.storeId != action.payload)

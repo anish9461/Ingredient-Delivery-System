@@ -1,4 +1,4 @@
-import {GET_INGREDIENTS, GET_STORES, SELECTED_STORE, GET_STORE, RESET} from '../actions/types';
+import {GET_STORES, SELECTED_STORE, GET_STORE, RESET} from '../actions/actionTypes';
 
 const initialState = {
     rStores: [],
