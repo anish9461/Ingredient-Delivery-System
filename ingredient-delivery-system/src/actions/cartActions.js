@@ -1,4 +1,4 @@
-import {ADD_TO_CART, REMOVE_FROM_CART, GET_CART_ITEMS, CHECKOUT, GET_INGREDIENT_QUANTITY} from './types';
+import {ADD_TO_CART, REMOVE_FROM_CART, GET_CART_ITEMS, CHECKOUT, GET_INGREDIENT_QUANTITY, RESET} from './types';
 
 export const addToCart = item => dispatch => {
     console.log("adding to cart in actions")
@@ -34,5 +34,11 @@ export const checkout = item => dispatch => {
     dispatch({
         type: CHECKOUT,
         payload: item
+    })
+}
+
+export const resetCart = () => dispatch => {
+    dispatch({
+        type: RESET
     })
 }

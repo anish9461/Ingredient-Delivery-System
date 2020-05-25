@@ -30,6 +30,7 @@ render(){
         if(cartItems.length != 0){
         return(
             <div style={{textAlign: 'center'}}>
+                <h2> Cart </h2>
                 <table>
                 <tr>
                 <th>Ingredient</th>
@@ -68,11 +69,21 @@ render(){
             }
     }
     else{
+        console.log(this.props.selectedStore)
+        if(Object.keys(this.props.selectedStore).length !== 0){
+            return(
+                <div>
+                    <h3>Please add Items to the Cart</h3>
+                </div>
+            )
+        }
+        else{
         return(
             <div>
-                <h3>Please add Items to the Cart</h3>
+                <h3>Please Select the Store to add items to the Cart</h3>
             </div>
         )
+        }
     }
         
 }

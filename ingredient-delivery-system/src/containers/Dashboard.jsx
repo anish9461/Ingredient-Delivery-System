@@ -4,7 +4,8 @@ import "../css/dashboard.css";
 import bgimage from "../images/restaurant-1.jpg";
 import IngredientList from "./IngredientContainer";
 import {connect} from 'react-redux';
-import {getStores} from '../actions/storesActions';
+import {getStores,resetStore} from '../actions/storesActions';
+import {resetCart} from '../actions/cartActions';
 import IngredientContainer from "./IngredientContainer";
 import CartsContainer from "./CartsContainer";
 
@@ -22,13 +23,16 @@ class Dashboard extends Component{
         return(
             <div className="dashboard">
                 <h1>Chefman Ingredient Delivery System</h1>
-                <div>
+                
                 <MapComponent />
+                <div>
+                <button className='buttonreset' onClick={() => {this.props.resetCart();this.props.resetStore()}}>
+                RESET
+                </button>
                 </div>
-                <h2> Ingredients </h2>
                 <IngredientContainer />
            
-                <h2> Cart </h2>
+                
                 <CartsContainer />
                 
                 </div>
@@ -38,7 +42,8 @@ class Dashboard extends Component{
 }
 
 const mapStateToProps = state => ({
-    retailStores: state.retailStores.rStores
+    retailStores: state.retailStores.rStores,
+    selectedStore: state.retailStores.selectedStore
 })
 
-export default connect(mapStateToProps,{getStores})(Dashboard);
+export default connect(mapStateToProps,{getStores,resetCart,resetStore})(Dashboard);

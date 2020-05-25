@@ -1,4 +1,4 @@
-import {ADD_TO_CART, REMOVE_FROM_CART, GET_CART_ITEMS, CHECKOUT, GET_INGREDIENT_QUANTITY} from '../actions/types';
+import {ADD_TO_CART, REMOVE_FROM_CART, GET_CART_ITEMS, CHECKOUT, GET_INGREDIENT_QUANTITY, RESET} from '../actions/types';
 
 const initialState = {
     cartItems: [],
@@ -38,11 +38,11 @@ export default function(state = initialState, action){
                 cartItems = [...state.cartItems]
                 return {...state,cartItems}             
             }
-            if(state.cartItems[CartIndex].ingredientQuantity == 0){
-                state.cartItems.splice(CartIndex,1)
-                cartItems = [...state.cartItems]
-                return {...state,cartItems}
-            }
+            // if(state.cartItems[CartIndex].ingredientQuantity == 0){
+            //     state.cartItems.splice(CartIndex,1)
+            //     cartItems = [...state.cartItems]
+            //     return {...state,cartItems}
+            // }
             if(state.cartItems[CartIndex].ingredientQuantity == 1){
                 //state.cartItems[CartIndex].ingredientQuantity--;
                 state.cartItems.splice(CartIndex,1)
@@ -74,6 +74,14 @@ export default function(state = initialState, action){
             //state.cartItems = state.cartItems.filter(item => item.storeId == action.payload).map(item => item.ingredientQuantity = 1).filter(item => item.storeId == action.payload)
             //console.log(state.cartItems)
             return {...state,cartItems}
+        case RESET:
+            console.log("reducing cart")
+            while(state.cartItems.length){
+                state.cartItems.pop()
+            }
+            console.log(state.cartItems)
+            state.ingredientQuantity = 0
+            return {...state}
         default:
             return {...state};
     }

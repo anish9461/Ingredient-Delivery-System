@@ -25,6 +25,7 @@ class IngredientContainer extends Component{
             let cartItem;
         return(
            <div style={{marginBottom: 20}}>
+               <h2> Ingredients </h2>
                <h3>Store {this.props.selectedStore.storeName} </h3>
                <div className="row">
                {ingredients.map(Ing => {

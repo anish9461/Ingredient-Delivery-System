@@ -71,15 +71,15 @@ class Ingredient extends Component{
                 
                 <div>
                        <button className="button" style={{marginRight: 15}}
-                       onClick={() => this.props.addToCart(this.props.cartItem)}>
-                          +
+                       onClick={() =>this.props.removeFromCart(this.props.cartItem) }>
+                          -
                        </button>
                        <div className="quantity">
                        {quantity}
                        </div>
                        <button className="button"
-                       onClick={() => this.props.removeFromCart(this.props.cartItem)}>
-                           -
+                       onClick={() => this.props.addToCart(this.props.cartItem)}>
+                           +
                        </button>
                        </div>
                        </div>

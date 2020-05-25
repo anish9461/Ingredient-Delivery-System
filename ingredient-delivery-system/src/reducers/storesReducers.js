@@ -1,4 +1,4 @@
-import {GET_INGREDIENTS, GET_STORES, SELECTED_STORE, GET_STORE} from '../actions/types';
+import {GET_INGREDIENTS, GET_STORES, SELECTED_STORE, GET_STORE, RESET} from '../actions/types';
 
 const initialState = {
     rStores: [],
@@ -25,6 +25,9 @@ export default function(state = initialState, action){
                 ...state,
                 selectedStore: action.payload
             }
+        case RESET:
+            state.selectedStore = {}
+            return {...state}
         default:
             return state;
     }
