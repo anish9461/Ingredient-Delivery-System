@@ -22,26 +22,31 @@ class CartsContainer extends Component {
           <div style={{ textAlign: "center" }}>
             <h2> Cart </h2>
             <table>
+            <thead>
               <tr>
                 <th>Ingredient</th>
                 <th>Quantity</th>
                 <th>Price</th>
               </tr>
+              </thead>
+              <tbody>
               {cartItems.map((item) => {
                 return (
                   <Cart
                     name={item.ingredientName}
                     price={item.ingredientPrice * item.ingredientQuantity}
                     quantity={item.ingredientQuantity}
+                    key={item.ingredientId}
                   />
                 );
               })}
 
               <tr>
-                <th></th>
-                <th></th>
-                <th style={{ color: "red" }}>Total : &#36;{total}</th>
+                <td></td>
+                <td></td>
+                <td style={{ color: "red" }}>Total : &#36;{total}</td>
               </tr>
+              </tbody>
             </table>
             <button
               className="button checkout"
@@ -93,10 +98,10 @@ CartsContainer.propTypes = {
     })
   ),
   selectedStore: PropTypes.shape({
-    storeId: PropTypes.number.isRequired,
-    storeName: PropTypes.string.isRequired,
-    storeLocation: PropTypes.array.isRequired,
-    estimateDelivery: PropTypes.string.isRequired,
+    storeId: PropTypes.number,
+    storeName: PropTypes.string,
+    storeLocation: PropTypes.array,
+    estimateDelivery: PropTypes.string,
     storeIngredients: PropTypes.arrayOf(
       PropTypes.shape({
         ingredientId: PropTypes.number.isRequired,

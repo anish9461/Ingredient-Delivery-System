@@ -20,14 +20,14 @@ export default function (state = initialState, action) {
           item.storeId === action.payload.storeId &&
           item.ingredientId === action.payload.ingredientId
       );
-     
+
       //If present, increment the quantity else add item to the cart
 
       if (addCartIndex === -1) {
         cartItems = [...state.cartItems, action.payload];
         return { ...state, cartItems };
       }
-    
+
       state.cartItems[addCartIndex].ingredientQuantity++;
       cartItems = [...state.cartItems];
 
@@ -41,7 +41,6 @@ export default function (state = initialState, action) {
 
       //If present, increment the quantity else add item to the cart
       if (CartIndex === -1) {
-    
         cartItems = [...state.cartItems];
         return { ...state, cartItems };
       }
@@ -74,7 +73,6 @@ export default function (state = initialState, action) {
       while (state.cartItems.length) {
         state.cartItems.pop();
       }
-      console.log(state.cartItems);
       state.ingredientQuantity = 0;
       return { ...state };
     default:

@@ -4,12 +4,13 @@ import { connect } from "react-redux";
 import { getStore } from "../actions/storesActions";
 import Ingredient from "../Components/Ingredient";
 import "../css/ingredient.css";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 class IngredientContainer extends Component {
   render() {
-    let ingredients = this.props.selectedStore.storeIngredients;
-    if (ingredients) {
+    let ingredients;
+    if (this.props.selectedStore.storeIngredients) {
+      ingredients = this.props.selectedStore.storeIngredients;
       let cartItem;
       return (
         <div style={{ marginBottom: 20 }}>
@@ -32,6 +33,7 @@ class IngredientContainer extends Component {
                   cartItem={cartItem}
                   ingredientId={Ing.ingredientId}
                   storeId={this.props.selectedStore.storeId}
+                  key={Ing.ingredientId}
                 />
               );
             })}
@@ -45,20 +47,20 @@ class IngredientContainer extends Component {
 }
 
 IngredientContainer.propTypes = {
-    selectedStore: PropTypes.shape({
-        storeId: PropTypes.number.isRequired,
-        storeName: PropTypes.string.isRequired,
-        storeLocation: PropTypes.array.isRequired,
-        estimateDelivery: PropTypes.string.isRequired,
-        storeIngredients: PropTypes.arrayOf(
-          PropTypes.shape({
-            ingredientId: PropTypes.number.isRequired,
-            ingredientName: PropTypes.string.isRequired,
-            ingredientPrice: PropTypes.number.isRequired,
-          })
-        ),
+  selectedStore: PropTypes.shape({
+    storeId: PropTypes.number,
+    storeName: PropTypes.string,
+    storeLocation: PropTypes.array,
+    estimateDelivery: PropTypes.string,
+    storeIngredients: PropTypes.arrayOf(
+      PropTypes.shape({
+        ingredientId: PropTypes.number.isRequired,
+        ingredientName: PropTypes.string.isRequired,
+        ingredientPrice: PropTypes.number.isRequired,
       })
-}
+    ),
+  }),
+};
 
 const mapStateToProps = (state) => ({
   selectedStore: state.retailStores.selectedStore,

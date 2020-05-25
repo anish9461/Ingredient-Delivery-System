@@ -4,16 +4,16 @@ import PropTypes from "prop-types";
 
 const Cart = ({ name, price, quantity }) => (
   <tr>
-    <th>{name}</th>
-    <th>{quantity}</th>
-    <th>&#36;{price}</th>
+    <td>{name}</td>
+    <td>{quantity}</td>
+    <td>&#36;{price}</td>
   </tr>
 );
 
 Cart.propTypes = {
-  name: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  quantity: PropTypes.number.isRequired,
+  name: PropTypes.string,
+  price: PropTypes.number,
+  quantity: PropTypes.number,
 };
 
 export default Cart;

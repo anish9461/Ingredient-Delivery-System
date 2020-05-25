@@ -9,8 +9,8 @@ const IngredientItem = ({ ingredient, price }) => (
 );
 
 IngredientItem.propTypes = {
-  ingredient: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
+  ingredient: PropTypes.string,
+  price: PropTypes.number,
 };
 
 export default IngredientItem;
