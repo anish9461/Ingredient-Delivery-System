@@ -1,3 +1,4 @@
+
 ///////////////////////////////////////////////////////////////////////////////////
 // cartActions.js - Actions for cart related data                                //
 // ver 1.0                                                                       //
@@ -46,3 +47,4 @@ export const resetCart = () => (dispatch) => {
     type: RESET,
   });
 };
+

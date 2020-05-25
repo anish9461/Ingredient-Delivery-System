@@ -1,3 +1,4 @@
+
 ///////////////////////////////////////////////////////////////////////////////////
 // MapComponent.jsx - Component to display the retail stores on the google map   //
 // ver 1.0                                                                       //
@@ -6,9 +7,11 @@
 // Source Author:      Anish Nesarkar,Syracuse University                        //
 ///////////////////////////////////////////////////////////////////////////////////
 
+
 import React, { Component } from "react";
 import ReactMapboxGl, { Marker } from "react-mapbox-gl";
 import mapmarker from "../marker.svg";
+
 import { connect } from "react-redux";
 import { getStores, selectStore } from "../actions/storesActions";
 import "../css/tooltip.css";
@@ -17,6 +20,7 @@ import PropTypes from "prop-types";
 //Access token from the MapboxGl API. Should be used as environment variable
 const Map = ReactMapboxGl({
   accessToken: process.env.REACT_APP_MAP,
+
 });
 
 //map component class
@@ -24,6 +28,7 @@ class MapComponent extends Component {
   constructor(props) {
     super(props);
     this.markerClick = this.markerClick.bind(this);
+
   }
 
   componentDidMount() {
@@ -109,3 +114,4 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, { getStores, selectStore })(
   MapComponent
 );
+

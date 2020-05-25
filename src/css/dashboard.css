@@ -1,10 +1,13 @@
+
 .dashboard {
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-top: 3%;
   margin-left: 1%;
   margin-bottom: 1%;
+
   text-align: center;
 }
 
@@ -27,3 +30,4 @@
 .reset {
   border-radius: 10px;
 }
+

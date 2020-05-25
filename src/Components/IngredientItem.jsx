@@ -1,3 +1,4 @@
+
 ///////////////////////////////////////////////////////////////////////////////////
 // IngredientItem.jsx - Display the available ingredients at store               //
 // ver 1.0                                                                       //
@@ -20,5 +21,6 @@ IngredientItem.propTypes = {
   ingredient: PropTypes.string,
   price: PropTypes.number,
 };
+
 
 export default IngredientItem;

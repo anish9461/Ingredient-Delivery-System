@@ -1,3 +1,4 @@
+
 ///////////////////////////////////////////////////////////////////////////////////
 // storesAction.js - Actions for store related data                              //
 // ver 1.0                                                                       //
@@ -36,3 +37,4 @@ export const resetStore = () => (dispatch) => {
     type: RESET,
   });
 };
+

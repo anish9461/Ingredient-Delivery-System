@@ -1,3 +1,4 @@
+
 ///////////////////////////////////////////////////////////////////////////////////
 // CartsContainer.jsx - Wrapper for Cart Items with Total and checkout button    //
 // ver 1.0                                                                       //
@@ -130,3 +131,4 @@ export default connect(mapStateToProps, {
   removeFromCart,
   checkout,
 })(CartsContainer);
+

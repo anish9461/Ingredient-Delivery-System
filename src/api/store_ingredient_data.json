@@ -4,12 +4,14 @@
         "storeName":"PriceRite",
         "storeLocation" : [-74.1630, 41.1087],
         "estimateDelivery" : "20 minutes",
+
         "storeIngredients" : [
             {"ingredientId" : 1, "ingredientName":"onions", "ingredientPrice":21},
             {"ingredientId" : 2, "ingredientName":"carrots", "ingredientPrice":13},
             {"ingredientId" : 3, "ingredientName":"tomatoes", "ingredientPrice":23},
             {"ingredientId" : 4, "ingredientName":"potatoes", "ingredientPrice":11},
             {"ingredientId" : 5, "ingredientName":"spinach", "ingredientPrice":24}
+
         ]
     },
     {
@@ -17,12 +19,14 @@
         "storeName":"PriceChopper",
         "storeLocation" : [-74.1530, 41.1007],
         "estimateDelivery" : "30 minutes",
+
         "storeIngredients" : [
             {"ingredientId" : 1, "ingredientName":"apple", "ingredientPrice":25},
             {"ingredientId" : 2, "ingredientName":"brocolli", "ingredientPrice":10},
             {"ingredientId" : 3, "ingredientName":"tomatoes", "ingredientPrice":17},
             {"ingredientId" : 4, "ingredientName":"potatoes", "ingredientPrice":28},
             {"ingredientId" : 5, "ingredientName":"spinach", "ingredientPrice":15}
+
         ]
     }
 ]

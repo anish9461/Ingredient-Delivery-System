@@ -1,3 +1,4 @@
+
 ///////////////////////////////////////////////////////////////////////////////////
 // Cart.jsx - Display the items added to cart                                    //
 // ver 1.0                                                                       //
@@ -25,3 +26,4 @@ Cart.propTypes = {
 };
 
 export default Cart;
+

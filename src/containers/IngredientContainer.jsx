@@ -1,3 +1,4 @@
+
 ///////////////////////////////////////////////////////////////////////////////////
 // IngredientContainer.jsx - Wrapper for Ingredients                             //
 // ver 1.0                                                                       //
@@ -75,3 +76,4 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { getStore })(IngredientContainer);
+

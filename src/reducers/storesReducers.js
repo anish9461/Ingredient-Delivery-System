@@ -1,3 +1,4 @@
+
 import {
   GET_STORES,
   SELECTED_STORE,
@@ -34,3 +35,4 @@ export default function (state = initialState, action) {
       return state;
   }
 }
+
