@@ -1,5 +1,13 @@
+///////////////////////////////////////////////////////////////////////////////////
+// storesAction.js - Actions for store related data                              //
+// ver 1.0                                                                       //
+// Language:    Javascript, React Framework                                      //
+// Ingredient Delivery System                                                    //
+// Source Author:      Anish Nesarkar,Syracuse University                        //
+///////////////////////////////////////////////////////////////////////////////////
+
 import { GET_STORES, SELECTED_STORE, GET_STORE, RESET } from "./actionTypes";
-import store_shop from "../api/store_shop";
+import store_shop from "../api/store_api";
 
 export const getStores = () => (dispatch) => {
   store_shop.getStores((Ing) =>

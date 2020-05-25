@@ -1,20 +1,10 @@
 .dashboard {
-  /* display: flex; */
-
-  /* margin-top: 30px; */
-  /* flex-direction: column;
-    justify-content: center;
-    height: auto;
-    width: auto; */
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-top: 3%;
   margin-left: 1%;
   margin-bottom: 1%;
-  /* width: auto;
-  height: auto; */
   text-align: center;
 }
 

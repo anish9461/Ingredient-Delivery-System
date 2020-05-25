@@ -1,3 +1,11 @@
+///////////////////////////////////////////////////////////////////////////////////
+// IngredientContainer.jsx - Wrapper for Ingredients                             //
+// ver 1.0                                                                       //
+// Language:    Javascript, React Framework                                      //
+// Ingredient Delivery System                                                    //
+// Source Author:      Anish Nesarkar,Syracuse University                        //
+///////////////////////////////////////////////////////////////////////////////////
+
 import React, { Component } from "react";
 import "../css/dashboard.css";
 import { connect } from "react-redux";

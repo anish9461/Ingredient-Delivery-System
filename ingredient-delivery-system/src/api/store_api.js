@@ -1,27 +1,13 @@
 ///////////////////////////////////////////////////////////////////////////////////
-// Cart.jsx - Display the items added to cart                                    //
+// store_api.js - js file to fetch sample data                                   //
 // ver 1.0                                                                       //
 // Language:    Javascript, React Framework                                      //
 // Ingredient Delivery System                                                    //
 // Source Author:      Anish Nesarkar,Syracuse University                        //
 ///////////////////////////////////////////////////////////////////////////////////
 
-import React from "react";
-import "../css/cart.css";
-import PropTypes from "prop-types";
+import _store_ingredients from './store_ingredient_data.json'
 
-const Cart = ({ name, price, quantity }) => (
-  <tr>
-    <td>{name}</td>
-    <td>{quantity}</td>
-    <td>&#36;{price}</td>
-  </tr>
-);
-
-Cart.propTypes = {
-  name: PropTypes.string,
-  price: PropTypes.number,
-  quantity: PropTypes.number,
-};
-
-export default Cart;
+export default {
+   getStores : (cb, timeout) => setTimeout(() => cb(_store_ingredients), timeout)
+}

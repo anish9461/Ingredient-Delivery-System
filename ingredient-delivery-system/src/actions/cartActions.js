@@ -1,3 +1,11 @@
+///////////////////////////////////////////////////////////////////////////////////
+// cartActions.js - Actions for cart related data                                //
+// ver 1.0                                                                       //
+// Language:    Javascript, React Framework                                      //
+// Ingredient Delivery System                                                    //
+// Source Author:      Anish Nesarkar,Syracuse University                        //
+///////////////////////////////////////////////////////////////////////////////////
+
 import {
   ADD_TO_CART,
   REMOVE_FROM_CART,

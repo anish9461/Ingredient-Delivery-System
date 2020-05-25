@@ -1,3 +1,11 @@
+///////////////////////////////////////////////////////////////////////////////////
+// Dashboard.jsx - Wrapper for Ingredient Delivery System components             //
+// ver 1.0                                                                       //
+// Language:    Javascript, React Framework                                      //
+// Ingredient Delivery System                                                    //
+// Source Author:      Anish Nesarkar,Syracuse University                        //
+///////////////////////////////////////////////////////////////////////////////////
+
 import React, { Component } from "react";
 import MapComponent from "../Components/MapComponent";
 import "../css/dashboard.css";

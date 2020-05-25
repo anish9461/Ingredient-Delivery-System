@@ -1,3 +1,11 @@
+///////////////////////////////////////////////////////////////////////////////////
+// CartsContainer.jsx - Wrapper for Cart Items with Total and checkout button    //
+// ver 1.0                                                                       //
+// Language:    Javascript, React Framework                                      //
+// Ingredient Delivery System                                                    //
+// Source Author:      Anish Nesarkar,Syracuse University                        //
+///////////////////////////////////////////////////////////////////////////////////
+
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getCartItems, removeFromCart, checkout } from "../actions/cartActions";

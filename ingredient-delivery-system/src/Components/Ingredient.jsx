@@ -1,3 +1,11 @@
+///////////////////////////////////////////////////////////////////////////////////
+// Ingredient.jsx - Wrapper for Ingredients with add and remove buttons          //
+// ver 1.0                                                                       //
+// Language:    Javascript, React Framework                                      //
+// Ingredient Delivery System                                                    //
+// Source Author:      Anish Nesarkar,Syracuse University                        //
+///////////////////////////////////////////////////////////////////////////////////
+
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import IngredientItem from "../Components/IngredientItem";
