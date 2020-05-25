@@ -14,10 +14,9 @@ import { getStores, selectStore } from "../actions/storesActions";
 import "../css/tooltip.css";
 import PropTypes from "prop-types";
 
-//Access token from the MapboxGl API
+//Access token from the MapboxGl API. Should be used as environment variable
 const Map = ReactMapboxGl({
-  accessToken:
-    "pk.eyJ1IjoiYW5pc2hua3IiLCJhIjoiY2szY2dyN2pxMG1hdDNvcGJ6Nm40eDhnbyJ9.hDogBTynjbFQ_K4y7AcaFg",
+  accessToken: process.env.REACT_APP_MAP,
 });
 
 //map component class
