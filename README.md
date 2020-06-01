@@ -51,7 +51,7 @@ The activity diagram of the complete system, from adding and ordering
 the items in the cart to the final confirmation page showing that the
 order was placed.
 
-![](media/image5.png)
+![](ChefmanFlowChart.png)
 
 1.  > User will open the application on the Web browser
 
@@ -92,7 +92,7 @@ order was placed.
 The system architecture to build the complete system and technology
 stacks required to accomplish this task.
 
-![](media/image4.png)
+![](ChefmanSystemArchitecture.png)
 
 ### **Front-End**
 
